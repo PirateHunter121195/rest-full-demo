@@ -1,0 +1,24 @@
+{
+  "name": "node-rest-shop",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bit": "^1.0.20",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "git": "^0.1.5",
+    "mongoose": "^5.6.0",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}
