@@ -3,7 +3,7 @@ const router = express.Router();
 const User = require('../models/user');
 const mongoose = require('mongoose');
 const bccrypt = require('bcrypt');
-
+const jwt = require('jsonwebtoken');
 
 router.post('/signup',(req, res, next) => {
     const email = req.body.email;
@@ -69,9 +69,21 @@ router.post('/login', (req, res, next) => {
             
                 }   
                 if(result) {
+                  const token =  jwt.sign(
+                      {
+                          email: user[0].email,
+                          userId: user[0]._id
+                      },
+                      process.env.JWT_KEY,
+                      {
+                          expiresIn: "1h"  
+                      }      
+
+                    );   
                     res.status(200).json({
-                        message: 'Auth successfully'
-                    })
+                        message: 'Auth successfully', 
+                        token: token
+                    });
                 } 
             });
         })
